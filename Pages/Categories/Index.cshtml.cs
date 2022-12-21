@@ -30,3 +30,4 @@ namespace Szilveszter_Levente_Lab2.Pages.Categories
         }
     }
 }
+
