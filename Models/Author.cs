@@ -19,3 +19,4 @@ namespace Szilveszter_Levente_Lab2.Models
         public ICollection<Book>? Books { get; set; }
     }
 }
+

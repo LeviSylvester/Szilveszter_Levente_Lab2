@@ -72,7 +72,6 @@ searchString)
                     BookD.Books = BookD.Books.OrderByDescending(s =>
                    s.Author.FullName);
                     break;
-
             }
         }
     }
