@@ -24,6 +24,9 @@ namespace Szilveszter_Levente_Lab2.Models
         public int AuthorID { get; set; }
         public Author Author { get; set; }
 
+        public int BorrowingID { get; set; }
+        public Borrowing Borrowing { get; set; }
+
         [Range(1, 300)]
         [Column(TypeName = "decimal(6, 2)")]        
         public decimal Price { get; set; }
