@@ -10,32 +10,34 @@ namespace Szilveszter_Levente_Lab2.Models
     {
         public int ID { get; set; }
 
-        [Required, StringLength(150, MinimumLength = 3)]
-        [Display(Name = "Book Title")]
+        //[Required, StringLength(150, MinimumLength = 3)]
+        //[Display(Name = "Book Title")]
         public string Title { get; set; }
 
-        [RegularExpression(@"^[A-Z][a-z]+\s[A-Z][a-z]+$", ErrorMessage = "Numele autorului trebuies"), Required, StringLength(50, MinimumLength = 3)]
-        //^ marcheaza inceputul sirului de caractere
-        //[A-Z][a-z]+ prenumele -litera mare urmata de oricate litere mici
-        //\s spatiu
-        //[A-Z][a-z]+ numele -litera mare urmata de oricate litere mici
-        //$ marcheaza sfarsitul sirului de caractere
-
-        public int AuthorID { get; set; }
-        public Author Author { get; set; }
-
-        public int BorrowingID { get; set; }
-        public Borrowing Borrowing { get; set; }
-
-        [Range(1, 300)]
-        [Column(TypeName = "decimal(6, 2)")]        
+        //[Range(1, 300)]
+        //[Column(TypeName = "decimal(6, 2)")]
+        [Column(TypeName = "decimal(6, 2)")]
+        [Range(0.01, 500)]
         public decimal Price { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime PublishingDate { get; set; }
 
-        public int PublisherID { get; set; }
-        public Publisher Publisher { get; set; } //navigation property
+        //[RegularExpression(@"^[A-Z][a-z]+\s[A-Z][a-z]+$", ErrorMessage = "Numele autorului trebuies"), Required, StringLength(50, MinimumLength = 3)]
+        //^ marcheaza inceputul sirului de caractere
+        //[A-Z][a-z]+ prenumele -litera mare urmata de oricate litere mici
+        //\s spatiu
+        //[A-Z][a-z]+ numele -litera mare urmata de oricate litere mici
+        //$ marcheaza sfarsitul sirului de caractere
+        public int? AuthorID { get; set; }
+        public Author? Author { get; set; }
+
+        public int? PublisherID { get; set; }
+        public Publisher? Publisher { get; set; } //navigation property
+
+        //public int? BorrowingID { get; set; }
+        public Borrowing? Borrowing { get; set; }                
+        
         public ICollection<BookCategory> BookCategories { get; set; }
     }
 }

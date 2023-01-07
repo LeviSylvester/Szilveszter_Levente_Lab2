@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
 using Szilveszter_Levente_Lab2.Models;
 
 namespace Szilveszter_Levente_Lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : BookCategoriesPageModel
     {
         private readonly Szilveszter_Levente_Lab2.Data.Szilveszter_Levente_Lab2Context _context;
-
+        
         public CreateModel(Szilveszter_Levente_Lab2.Data.Szilveszter_Levente_Lab2Context context)
         {
             _context = context;

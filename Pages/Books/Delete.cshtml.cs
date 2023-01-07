@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,7 @@ using Szilveszter_Levente_Lab2.Models;
 
 namespace Szilveszter_Levente_Lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
     {
         private readonly Szilveszter_Levente_Lab2.Data.Szilveszter_Levente_Lab2Context _context;
@@ -20,7 +23,7 @@ namespace Szilveszter_Levente_Lab2.Pages.Books
         }
 
         [BindProperty]
-      public Book Book { get; set; }
+        public Book Book { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
